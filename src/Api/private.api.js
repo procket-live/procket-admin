@@ -1,5 +1,5 @@
 import { Get, Post } from "../Utils/http.utils";
-import { OFFERS, GAME, TOURNAMENT, LEADERBOARD, GAME_PROFILES, PROFILE, USER, GENERATE_OTP, VERIFY_OTP, PARTICIPATE, PAYEMENT, WALLET, ADD_AMOUNT, VERIFY_PAYMENT, TRANSACTIONS, SET_FIREBASE_TOKEN } from "../Constants/api.constants";
+import { OFFERS, GAME, TOURNAMENT, LEADERBOARD, GAME_PROFILES, PROFILE, USER, GENERATE_OTP, VERIFY_OTP, PARTICIPATE, PAYEMENT, WALLET, ADD_AMOUNT, VERIFY_PAYMENT, TRANSACTIONS, SET_FIREBASE_TOKEN, ADMIN, CHECK_ADMIN } from "../Constants/api.constants";
 
 class PrivateApi {
     static offers(body) {
@@ -98,6 +98,22 @@ class PrivateApi {
 
     static setFirebaseToken(body) {
         return Post({ url: SET_FIREBASE_TOKEN, body, hideMessage: true })
+    }
+
+    static createGame(body) {
+        return Post({ url: GAME, body })
+    }
+
+    static getAdmins() {
+        return Get({ url: ADMIN })
+    }
+
+    static checkAdmin() {
+        return Get({ url: CHECK_ADMIN })
+    }
+
+    static createOffer(body) {
+        return Post({ url: OFFERS, body })
     }
 }
 

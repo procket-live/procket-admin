@@ -16,3 +16,5 @@ export const ADD_AMOUNT = 'user/addAmount';
 export const VERIFY_PAYMENT = 'user/verifyPayment';
 export const TRANSACTIONS = 'user/transactions';
 export const SET_FIREBASE_TOKEN = 'user/setFirebaseToken';
+export const ADMIN = 'admin';
+export const CHECK_ADMIN = 'admin/isAdmin';

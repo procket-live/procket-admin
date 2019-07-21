@@ -8,6 +8,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import PublicApi from '../../Api/public.api';
 import GLOBAL from '../../Constants/global.constants';
+import PrivateApi from '../../Api/private.api';
 
 const styles = theme => ({
     '@global': {
@@ -47,11 +48,14 @@ class LoginScene extends Component {
     submit = async () => {
         const result = await PublicApi.login({ email: this.state.email, password: this.state.password })
         if (result.success) {
-            const user = result.response;
-            const token = result.token;
-            localStorage.setItem('@token', token);
-            GLOBAL.USER = user;
-            this.setState({ loggedIn: true });
+            const adminCheck = await PrivateApi.checkAdmin();
+            if (adminCheck.success) {
+                const user = result.response;
+                const token = result.token;
+                localStorage.setItem('@token', token);
+                GLOBAL.USER = user;
+                this.setState({ loggedIn: true });
+            }
         }
     }
 

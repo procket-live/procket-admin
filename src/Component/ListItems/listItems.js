@@ -45,18 +45,36 @@ export const mainListItems = (
             </ListItemIcon>
             <ListItemText primary="Users" />
         </ListItem>
+        <Link to="admin">
+            <ListItem button>
+                <ListItemIcon>
+                    <LayersIcon />
+                </ListItemIcon>
+                <ListItemText primary="Admins" />
+            </ListItem>
+        </Link>
+        <Link to="offers">
+            <ListItem button>
+                <ListItemIcon>
+                    <LayersIcon />
+                </ListItemIcon>
+                <ListItemText primary="Offers" />
+            </ListItem>
+        </Link>
     </div>
 );
 
 export const secondaryListItems = (
     <div>
         <ListSubheader inset>Add New</ListSubheader>
-        <ListItem button>
-            <ListItemIcon>
-                <AssignmentIcon />
-            </ListItemIcon>
-            <ListItemText primary="Game" />
-        </ListItem>
+        <Link to="addNewGame">
+            <ListItem button>
+                <ListItemIcon>
+                    <AssignmentIcon />
+                </ListItemIcon>
+                <ListItemText primary="Game" />
+            </ListItem>
+        </Link>
         <ListItem button>
             <ListItemIcon>
                 <AssignmentIcon />
